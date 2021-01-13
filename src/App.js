@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react"
+import { AgeContext } from "./contexts/AgeContextProvider"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const { age, setAge, message, setMessage } = useContext(AgeContext)
+	return (
+		<div>
+			<input onChange={(e) => setAge(e.target.value)} placeholder="Enter age" />
+			<p className="message"> {message}</p>
+		</div>
+	)
 }
 
-export default App;
+export default App
